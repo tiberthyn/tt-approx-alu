@@ -1,1 +1,6 @@
-
+create_clock -name clk -period 40 [get_ports clk]
+set_clock_uncertainty -setup 2 [get_clocks clk]
+set_clock_uncertainty -hold  1 [get_clocks clk]
+set_max_delay 35 -from [all_inputs] -to [all_outputs]
+set_input_delay  8 -clock clk [get_ports {ui_in[*] uio[*]}]
+set_output_delay 8 -clock clk [get_ports uo_out[*]]
