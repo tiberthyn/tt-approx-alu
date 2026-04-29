@@ -1,1 +1,17 @@
-
+project:
+  title: "Approximate 8-bit ALU for Edge Computing"
+  author: "Berthyn"
+  description: "Open-source ALU with exact/approximate modes. Carry-ignored adder and truncated multiplier. Includes runtime error flag for quality monitoring."
+  language: "Verilog"
+  clock_hz: 25000000
+  top_module: "tt_um_approx_alu"
+  source_files:
+    - "verilog/user_proj.v"
+  pinout:
+    ui_in: "Operand A (8-bit)"
+    uio: "[3:0]=Operand B, [6:4]=Opcode, [7]=Approx Enable"
+    uo_out: "[6:0]=Result, [7]=Error Flag"
+    clk: "25 MHz"
+    rst_n: "Active-low reset"
+  test_mode: "Switches and LEDs on Tiny Tapeout demoboard."
+  license: "CERN-OHL-S-2.0"
